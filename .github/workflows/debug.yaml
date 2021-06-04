@@ -21,8 +21,23 @@ jobs:
           echo - github.event_name ${{ github.event_name }}
           echo - github.event.action ${{ github.event.action }}
           echo - github.event.pull_request.merged ${{ github.event.pull_request.merged }}
-          echo - github "${{ toJSON(github) }}"
-          echo - env "${{ toJSON(env) }}"
-          echo - job "${{ toJSON(job) }}"
-          echo - steps "${{ toJSON(steps) }}"
-          echo - needs "${{ toJSON(needs) }}"
+          echo - github 
+          cat <<<EOF
+          ${{ toJSON(github) }}
+          EOF
+          echo - env
+          cat <<<EOF
+          ${{ toJSON(env) }}
+          EOF
+          echo - job
+          cat <<<EOF
+          ${{ toJSON(job) }}
+          EOF
+          echo - steps
+          cat <<<EOF
+          ${{ toJSON(steps) }}
+          EOF
+          echo - needs
+          cat <<<EOF
+          ${{ toJSON(needs) }}
+          EOF
