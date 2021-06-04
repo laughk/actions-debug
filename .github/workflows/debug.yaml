@@ -17,6 +17,12 @@ jobs:
       - name: debug
         run: |
           echo debug
-          echo ${{ github.event_name }}
-          echo ${{ github.event.action }}
-          echo ${{ github.event.pull_request.merged }}
+          echo ------------------------------------------
+          echo - github.event_name ${{ github.event_name }}
+          echo - github.event.action ${{ github.event.action }}
+          echo - github.event.pull_request.merged ${{ github.event.pull_request.merged }}
+          echo - github ${{ github }}
+          echo - env ${{ env }}
+          echo - job ${{ job }}
+          echo - steps ${{ steps }}
+          echo - needs ${{ needs }}
