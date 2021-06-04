@@ -22,22 +22,22 @@ jobs:
           echo - github.event.action ${{ github.event.action }}
           echo - github.event.pull_request.merged ${{ github.event.pull_request.merged }}
           echo - github 
-          cat <<<EOF
+          cat <<EOF
           ${{ toJSON(github) }}
           EOF
           echo - env
-          cat <<<EOF
+          cat <<EOF
           ${{ toJSON(env) }}
           EOF
           echo - job
-          cat <<<EOF
+          cat <<EOF
           ${{ toJSON(job) }}
           EOF
           echo - steps
-          cat <<<EOF
+          cat <<EOF
           ${{ toJSON(steps) }}
           EOF
           echo - needs
-          cat <<<EOF
+          cat <<EOF
           ${{ toJSON(needs) }}
           EOF
