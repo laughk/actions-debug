@@ -17,6 +17,12 @@ jobs:
       - name: debug
         run: |
           echo debug
-          echo ${{ github.event_name }}
-          echo ${{ github.event.action }}
-          echo ${{ github.event.pull_request.merged }}
+          echo ------------------------------------------
+          echo - github.event_name ${{ github.event_name }}
+          echo - github.event.action ${{ github.event.action }}
+          echo - github.event.pull_request.merged ${{ github.event.pull_request.merged }}
+          echo - github "${{ toJSON(github) }}"
+          echo - env "${{ toJSON(env) }}"
+          echo - job "${{ toJSON(job) }}"
+          echo - steps "${{ toJSON(steps) }}"
+          echo - needs "${{ toJSON(needs) }}"
