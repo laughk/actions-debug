@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: debug
+        if: ${{ github.ref == 'refs/heads/main' && event_name == 'push' }}
         run: |
           echo debug
           echo ------------------------------------------
@@ -37,7 +38,7 @@ jobs:
           cat <<EOF
           ${{ toJSON(steps) }}
           EOF
-          echo - needs
+          echo - "needs"
           cat <<EOF
           ${{ toJSON(needs) }}
           EOF
