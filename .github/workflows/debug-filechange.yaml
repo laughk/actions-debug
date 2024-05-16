@@ -5,6 +5,8 @@ on:
   push:
     tags:
       - '*'
+    branches:
+      - main
 
 jobs:
   debug:
@@ -16,7 +18,7 @@ jobs:
       - uses: dorny/paths-filter@v3
         id: change-on-tags
         with:
-          base: "refs/remotes/origin/main"
+          base: main
           filters: |
             src:
               - 'changed'
