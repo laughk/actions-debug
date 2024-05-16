@@ -1,0 +1,27 @@
+name: Push Tag
+
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: dorny/paths-filter@v3
+        id: change-on-tags
+        with:
+          base: "refs/remotes/origin/main"
+          filters: |
+            src:
+              - 'changed'
+
+      - name: Debug
+        if: steps.change-on-tags.outputs.src == 'true'
+        run: |
+          echo "Files changed on tag push"
