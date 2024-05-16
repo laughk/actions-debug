@@ -27,5 +27,8 @@ jobs:
         if: steps.change-on-tags.outputs.src == 'true'
         run: |
           echo "Files changed on tag push"
+
+      - name: debug value
+        run: |
           echo "github:"
           echo "${{ toJson(github) }}"
