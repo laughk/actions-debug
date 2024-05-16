@@ -27,3 +27,4 @@ jobs:
         if: steps.change-on-tags.outputs.src == 'true'
         run: |
           echo "Files changed on tag push"
+          echo "github.ref_name: ${{ github.ref_name }}"
