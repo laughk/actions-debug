@@ -18,7 +18,7 @@ jobs:
       - uses: dorny/paths-filter@v3
         id: change-on-tags
         with:
-          base: main
+          base: ${{ github.ref_name }}
           filters: |
             src:
               - 'changed'
